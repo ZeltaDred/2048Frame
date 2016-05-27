@@ -559,11 +559,13 @@ treeJSON = d3.json("qrc:/flare.json", function(error, treeData) {
         viewerWidth = $(document).width() - 20;
         viewerHeight = $(document).height() - 20;
 
+        baseSvg.attr("width", viewerWidth).attr("height", viewerHeight);
+
         tree = d3.layout.tree().size([viewerHeight, viewerWidth]);
 
         update(last);
 
-        centerNode(last);
+        if(last != root) centerNode(last);
 
 
     }, 250);
@@ -576,10 +578,10 @@ treeJSON = d3.json("qrc:/flare.json", function(error, treeData) {
     // Define the root
     root = treeData;
     root.x0 = viewerHeight / 2;
-    root.y0 = 0;
+    root.y0 = 50;
 
     // Layout the tree initially and center on the root node.
     update(root);
-    centerNode(root);
+//    centerNode(root);
     last = root;
 });
