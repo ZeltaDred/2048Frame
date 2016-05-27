@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>index.html</file>
+        <file>LogoBlock.html</file>
+        <file>bootstrap.min.css</file>
+    </qresource>
+</RCC>
