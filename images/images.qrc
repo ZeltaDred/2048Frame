@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>scitools-logo.png</file>
+        <file>../html/LogoBlock.html</file>
+    </qresource>
+</RCC>
