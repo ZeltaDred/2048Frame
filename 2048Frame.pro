@@ -23,7 +23,8 @@ FORMS    += mainwindow.ui
 RESOURCES += \
     js/js.qrc \
     data/data.qrc \
-    html/html.qrc
+    html/html.qrc \
+    images/images.qrc
 
 DISTFILES += \
     index.html

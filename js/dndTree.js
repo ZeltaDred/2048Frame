@@ -378,7 +378,7 @@ treeJSON = d3.json("qrc:/flare.json", function(error, treeData) {
             }
         };
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line
+        var newHeight = d3.max(levelWidth) * 20; // 20 pixels per line
         tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
@@ -387,6 +387,7 @@ treeJSON = d3.json("qrc:/flare.json", function(error, treeData) {
 
         // Set widths between levels based on maxLabelLength.
         nodes.forEach(function(d) {
+            console.error("update depth " + d.depth)
             d.y = (d.depth * (maxLabelLength * 10)); //maxLabelLength * 10px
             // alternatively to keep a fixed scale one can set a fixed depth per level
             // Normalize for fixed-depth by commenting out below line
@@ -559,9 +560,11 @@ treeJSON = d3.json("qrc:/flare.json", function(error, treeData) {
         viewerWidth = $(document).width() - 20;
         viewerHeight = $(document).height() - 20;
 
+        $("#chrt-container").height($(window).height() - 20);
+
         baseSvg.attr("width", viewerWidth).attr("height", viewerHeight);
 
-        tree = d3.layout.tree().size([viewerHeight, viewerWidth]);
+//        tree = d3.layout.tree().size([viewerHeight, viewerWidth]);
 
         update(last);
 
@@ -579,6 +582,8 @@ treeJSON = d3.json("qrc:/flare.json", function(error, treeData) {
     root = treeData;
     root.x0 = viewerHeight / 2;
     root.y0 = 50;
+
+    console.error("dorig " + viewerHeight + 20);
 
     // Layout the tree initially and center on the root node.
     update(root);

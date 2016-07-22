@@ -4,5 +4,10 @@
         <file>d3.min.js</file>
         <file>jquery-2.2.4.min.js</file>
         <file>bootstrap.min.js</file>
+        <file>2048.js</file>
+        <file>controls.js</file>
+        <file>project.js</file>
+        <file>newGame.js</file>
+        <file>randomColor.js</file>
     </qresource>
 </RCC>

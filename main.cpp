@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
     // load the command line args to the application
     QApplication a(argc, argv);
 
+
+
     // Set globals  for  unique settings storage
     QCoreApplication::setOrganizationName("sciTools");
     QCoreApplication::setOrganizationDomain("sciTools.com");

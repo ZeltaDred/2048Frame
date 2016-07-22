@@ -12,23 +12,25 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setStyleSheet("background-color: #FF808080;");
+
     // initialize a window for the tree view
     m_logoWebPage = new QWebEngineView(this);
 
     //initialize a window for the chart view
-    m_projWebPage = new QWebEngineView(this);
+    m_cntrlWebPage = new QWebEngineView(this);
 
     // initialize a window for the tree view
-    m_treeWebPage = new QWebEngineView(this);
+    m_projWebPage = new QWebEngineView(this);
 
     //initialize a window for the chart view
     m_chrtWebPage = new QWebEngineView(this);
 
     // add the  widgets to the main window
     ui->gridLayout->addWidget(m_logoWebPage,0,0);
-    ui->gridLayout->addWidget(m_projWebPage,0,1);
+    ui->gridLayout->addWidget(m_cntrlWebPage,0,1);
 
-    ui->gridLayout->addWidget(m_treeWebPage,1,0);
+    ui->gridLayout->addWidget(m_projWebPage,1,0);
     ui->gridLayout->addWidget(m_chrtWebPage,1,1);
 
     // specify a relative size for each  widget
@@ -37,8 +39,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gridLayout->setRowStretch(0,1);
 
     //   3/4s of the screen  for the Project & Charting
-    ui->gridLayout->setColumnStretch(1,3);
-    ui->gridLayout->setRowStretch(1,4);
+    ui->gridLayout->setColumnStretch(1,4);
+    ui->gridLayout->setRowStretch(1,5);
 
     // START: set QWebEngine to accept local files.
     //  Test  status of  local and global settings
@@ -47,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Once each for the  tree  and chart  windows
     QWebEngineSettings *cSettings = m_chrtWebPage->settings();
-    QWebEngineSettings *tSettings = m_treeWebPage->settings();
+    QWebEngineSettings *tSettings = m_projWebPage->settings();
 
     cSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, enableLocalFileStuff);
     cSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, enableLocalFileStuff);
@@ -58,7 +60,7 @@ MainWindow::MainWindow(QWidget *parent) :
     cSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, enableLocalFileStuff);
     cSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, enableLocalFileStuff);
 
-    tSettings = m_treeWebPage->page()->settings();
+    tSettings = m_projWebPage->page()->settings();
     tSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, enableLocalFileStuff);
     tSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, enableLocalFileStuff);
 
@@ -71,8 +73,9 @@ MainWindow::MainWindow(QWidget *parent) :
     readSettings();
 
     m_logoWebPage->load(QUrl("qrc:/LogoBlock.html"));
-    m_treeWebPage->load(QUrl("qrc:/tree.html"));
-    m_chrtWebPage->load(QUrl("qrc:/index.html"));
+    m_projWebPage->load(QUrl("qrc:/project.html"));
+    m_cntrlWebPage->load(QUrl("qrc:/controls.html"));
+    m_chrtWebPage->load(QUrl("qrc:/2048.html"));
 
 }
 

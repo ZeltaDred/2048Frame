@@ -3,5 +3,9 @@
         <file>index.html</file>
         <file>LogoBlock.html</file>
         <file>bootstrap.min.css</file>
+        <file>project.html</file>
+        <file>controls.html</file>
+        <file>2048.html</file>
+        <file>2048.css</file>
     </qresource>
 </RCC>

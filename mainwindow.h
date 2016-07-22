@@ -27,7 +27,7 @@ private:
 
     QWebEngineView* m_logoWebPage;
     QWebEngineView* m_projWebPage;
-    QWebEngineView* m_treeWebPage;
+    QWebEngineView* m_cntrlWebPage;
     QWebEngineView* m_chrtWebPage;
 };
 

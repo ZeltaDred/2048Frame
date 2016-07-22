@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>scitools-logo.png</file>
+        <file>index.html</file>
     </qresource>
 </RCC>
